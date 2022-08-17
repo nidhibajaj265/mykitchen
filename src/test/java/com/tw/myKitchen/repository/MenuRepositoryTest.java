@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 
+import java.awt.*;
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -24,13 +25,24 @@ class MenuRepositoryTest {
         MenuItem expectedMenuItem = new MenuItem(1,"Item",55.6,"Breakfast");
         menuRepository.save(expectedMenuItem);
 
-        Optional<MenuItem> actualMenuItemOptional = menuRepository.findByName("item");
+        Optional<MenuItem> actualMenuItemOptional = menuRepository.findByName("Item");
 
         assertTrue(actualMenuItemOptional.isPresent());
         MenuItem actualMenuItem = actualMenuItemOptional.get();
 
         assertEquals(expectedMenuItem, actualMenuItem);
 
+    }
+
+    @Test
+    void shouldNotReturnItemWhenTheGivenItemIsNotSaved()
+    {
+        MenuItem menuItem = new MenuItem(1,"Item",55.6,"Breakfast");
+        menuRepository.save(menuItem);
+
+        Optional<MenuItem> menuItemOptional = menuRepository.findByName("Another Item");
+
+        assertFalse(menuItemOptional.isPresent());
     }
 
 
