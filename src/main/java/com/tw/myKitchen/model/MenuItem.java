@@ -26,6 +26,6 @@ public class MenuItem {
     private String name;
     @Column (name = "price", nullable = false)
     private double price;
-    @Column (name = "type", nullable = false)
+    @Column (name = "item_type", nullable = false)
     private String type;
 }
