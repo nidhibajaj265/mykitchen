@@ -1,6 +1,6 @@
-import React from 'react';
+import React, {Component} from 'react';
 
-class Welcome extends React.Component{
+export default class Welcome extends React.Component{
     render(){
         return(
           <div class="bg-light p-5 rounded-lg m-3">
@@ -17,4 +17,3 @@ class Welcome extends React.Component{
     }
 }
 
-export default Welcome;
