@@ -6,7 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 
-import java.awt.*;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -31,7 +32,6 @@ class MenuRepositoryTest {
         MenuItem actualMenuItem = actualMenuItemOptional.get();
 
         assertEquals(expectedMenuItem, actualMenuItem);
-
     }
 
     @Test
