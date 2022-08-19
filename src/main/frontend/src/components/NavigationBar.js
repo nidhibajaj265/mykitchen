@@ -4,13 +4,13 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import logo from './MasalaKitchenLogo.png';
-import {Link} from 'react-router-dom';
+import {Link, Router} from 'react-router-dom';
 
 
 export default class NavigationBar extends Component{
     render(){
         return(
-        <Navbar className="bg-danger text-white" variant="bg-danger text-white">
+        <Navbar className="bg-danger text-white" variant="bg-danger text-white">    
             <Link to={""} className="navbar-brand">
                  <img src={logo} alt="logo" / >
             </Link>
