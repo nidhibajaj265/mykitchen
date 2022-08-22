@@ -30,7 +30,8 @@ jobs:
 
       - node/install:
           node-version: "12.22"
-      - node/install-packages
+      - node/install-packages:
+          - app-dir: ~/src/main/frontend
       - run:
           command:
             npm run test
