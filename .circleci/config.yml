@@ -26,7 +26,7 @@ jobs:
       - node/install:
           node-version: "12.22"
       - node/install-packages
-      -   app-dir: "./src/main/frontend"
+            app-dir: "./src/main/frontend"
       - run:
           app-dir: "./src/main/frontend"
           command:
