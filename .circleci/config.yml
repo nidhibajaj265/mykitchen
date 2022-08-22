@@ -30,7 +30,7 @@ jobs:
 
       - node/install:
           node-version: "12.22"
-      - node/install-packages
+      - node/install-packages:
           app-dir: ~/project/src/main/frontend
       - run:
           command:
