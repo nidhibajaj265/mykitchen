@@ -6,7 +6,9 @@ workflows:
   build_and_test:
     jobs:
       - build-and-test-react
-      - build-springboot
+      - build-springboot:
+          requires:
+            - build-and-test-react
       - test-springboot:
            requires:
             - build-springboot
@@ -25,6 +27,7 @@ jobs:
           node-version: "12.22"
       - node/install-packages
       - run:
+          app-dir: "./src/main/frontend"
           command:
             npm run test
 
