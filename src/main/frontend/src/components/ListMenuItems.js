@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {Card, Table} from 'react-bootstrap'
+import axios from 'axios'
 
 export default class ListMenuItems extends Component{
 
@@ -31,7 +32,10 @@ export default class ListMenuItems extends Component{
                               </thead>
                           <tbody className="text-danger">
                             {
-
+                                this.state.menuItems.length == 0 ?
+                                <tr align="center">
+                                <td colspan ="6"> Sorry !! Menu Unavailable at the momemt. Please come back in some time. </td>
+                                </tr> :
                                  menuItems.map(menuItem =>
                                                        <tr key={menuItem.id}>
                                                         <td> {menuItem.name} </td>
