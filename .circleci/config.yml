@@ -23,16 +23,18 @@ jobs:
       - image: "cimg/base:stable"
     steps:
       - checkout
+      - persist_to_workspace:
+            root: ./
+            paths:
+              - ./src/main/frontend
+
       - node/install:
           node-version: "12.22"
       - node/install-packages
       - run:
           command:
             npm run test
-      - persist_to_workspace:
-          root: ~/project/src/main/frontend
-          paths:
-            - .
+
 
   build-springboot:
     docker:
