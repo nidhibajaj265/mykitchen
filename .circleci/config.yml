@@ -19,7 +19,6 @@ workflows:
 
 jobs:
   build-and-test-react:
-    working_directory: src/main/frontend
     docker:
       - image: "cimg/base:stable"
     steps:
