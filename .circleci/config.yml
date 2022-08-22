@@ -8,11 +8,12 @@ workflows:
       - build-and-test-react
       - build-springboot
       - test-springboot
-           requires
+           requires:
             - build-springboot
       - deployToStage:
           requires:
-            - test
+            - build-and-test-react
+            - test-springboot
 
 jobs:
   build-and-test-react:
@@ -27,7 +28,7 @@ jobs:
           command:
             npm run test
 
-  build-springboot :
+  build-springboot:
     docker:
       - image: circleci/openjdk:8-jdk
     steps:
