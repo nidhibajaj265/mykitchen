@@ -6,6 +6,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.awt.*;
 import java.util.List;
 
 @Service
@@ -18,5 +19,9 @@ public class MenuService {
     public List<MenuItem> getAllMenuItems()
     {
         return  (List<MenuItem>) menuRepository.findAll();
+    }
+
+    public MenuItem addMenuItem(MenuItem newMenuItem) {
+        return menuRepository.save(newMenuItem);
     }
 }

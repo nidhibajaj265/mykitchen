@@ -8,6 +8,7 @@ import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
 import java.util.Arrays;
 import java.util.List;
@@ -35,7 +36,7 @@ class MenuControllerTest {
 
         when(menuService.getAllMenuItems()).thenReturn(expectedMenuItemList);
 
-        mockMvc.perform(get("/menu"))
+        mockMvc.perform(get("/api/menu"))
                 .andExpect(jsonPath("$.length()").value(2))
                 .andExpect(jsonPath("$[0].name").value("idli"))
                 .andExpect(jsonPath("$[0].price").value("55.7"))
@@ -47,6 +48,19 @@ class MenuControllerTest {
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON));
 
         verify(menuService, times(1)).getAllMenuItems();
+    }
+
+    @Test
+    void shouldSaveNewMenuItem() throws Exception {
+        MenuItem idli = new MenuItem(1,"idli",55.7,"Breakfast");
+
+        when(menuService.addMenuItem(idli)).thenReturn(idli);
+
+        mockMvc.perform(MockMvcRequestBuilders.post("/api/additem")
+                        .param("name","idli")
+                        .param("price","55.7")
+                        .param("type","Breakfast"))
+                .andExpect(status().isOk());
     }
 
 }

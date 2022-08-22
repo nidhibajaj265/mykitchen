@@ -28,4 +28,10 @@ public class MenuItem {
     private double price;
     @Column (name = "item_type", nullable = false)
     private String type;
+
+    public MenuItem(String name, Double price, String type) {
+        this.name = name;
+        this.price = price;
+        this.type = type;
+    }
 }
