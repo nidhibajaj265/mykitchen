@@ -19,7 +19,6 @@ workflows:
 
 jobs:
   build-and-test-react:
-    app-dir: ./src/main/frontend
     docker:
       - image: "cimg/base:stable"
     steps:
@@ -30,6 +29,10 @@ jobs:
       - run:
           command:
             npm run test
+      - persist_to_workspace:
+          root: ~/project
+          paths:
+            - ./src/main/frontend
 
   build-springboot:
     docker:
