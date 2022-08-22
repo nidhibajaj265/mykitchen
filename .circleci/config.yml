@@ -25,7 +25,7 @@ jobs:
       - node/install-packages
       - run:
           command:
-            npm run testbuild-and-test-react :
+            npm run test
 
   build-springboot :
     docker:
