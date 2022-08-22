@@ -33,6 +33,7 @@ jobs:
       - node/install-packages:
           app-dir: ~/project/src/main/frontend
       - run:
+          app-dir: ~/project/src/main/frontend
           command:
             npm run test
 
