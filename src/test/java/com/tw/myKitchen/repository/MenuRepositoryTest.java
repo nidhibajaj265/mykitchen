@@ -16,7 +16,7 @@ import static org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTest
 
 @AutoConfigureTestDatabase(replace = NONE)
 @DataJpaTest
-@Transactional
+//@Transactional
 class MenuRepositoryTest {
 
     @Autowired
@@ -25,8 +25,8 @@ class MenuRepositoryTest {
     @Test
     void shouldReturnMenuItemWithGivenName()
     {
-        MenuItem expectedMenuItem = new MenuItem(1,"Item",55.6,"Breakfast");
-        menuRepository.save(expectedMenuItem);
+        MenuItem menuItem = new MenuItem("Item",55.6,"Breakfast");
+        MenuItem expectedMenuItem = menuRepository.save(menuItem);
 
         Optional<MenuItem> actualMenuItemOptional = menuRepository.findByName("Item");
 
@@ -39,7 +39,7 @@ class MenuRepositoryTest {
     @Test
     void shouldNotReturnItemWhenTheGivenItemIsNotSaved()
     {
-        MenuItem menuItem = new MenuItem(1,"Item",55.6,"Breakfast");
+        MenuItem menuItem = new MenuItem("Item",55.6,"Breakfast");
         menuRepository.save(menuItem);
 
         Optional<MenuItem> menuItemOptional = menuRepository.findByName("Another Item");

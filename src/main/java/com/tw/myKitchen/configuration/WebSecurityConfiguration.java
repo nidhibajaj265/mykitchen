@@ -1,5 +1,6 @@
 package com.tw.myKitchen.configuration;
 
+import com.tw.myKitchen.service.UserService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;

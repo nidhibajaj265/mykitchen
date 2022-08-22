@@ -1,5 +1,6 @@
 package com.tw.myKitchen.controller;
 
+import com.tw.myKitchen.controller.controllerHelper.ControllerHelper;
 import com.tw.myKitchen.model.MenuItem;
 import com.tw.myKitchen.service.MenuService;
 import org.junit.jupiter.api.Test;
@@ -19,7 +20,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 @WebMvcTest(controllers = MenuController.class)
-class MenuControllerTest {
+class MenuControllerTest extends ControllerHelper {
 
     @Autowired
     private MockMvc mockMvc;
