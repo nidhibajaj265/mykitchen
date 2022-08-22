@@ -25,6 +25,7 @@ jobs:
       - checkout
       - node/install:
           node-version: "12.22"
+          app-dir: "./src/main/frontend"
       - node/install-packages
       - run:
           app-dir: "./src/main/frontend"
