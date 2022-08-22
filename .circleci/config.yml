@@ -19,12 +19,11 @@ workflows:
 
 jobs:
   build-and-test-react:
-    working_directory: ~/project/src/main/frontend
+    working_directory: src/main/frontend
     docker:
       - image: "cimg/base:stable"
     steps:
       - checkout
-          path: ~/project/src/main/frontend
       - node/install:
           node-version: "12.22"
       - node/install-packages
