@@ -33,9 +33,8 @@ jobs:
       - node/install-packages:
           app-dir: ~/project/src/main/frontend
       - run:
-          app-dir: ~/project/src/main/frontend
           command:
-            npm run test
+            cd src/main/frontend && npm run test
 
 
   build-springboot:
