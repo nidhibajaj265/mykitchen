@@ -21,40 +21,34 @@ export default class AddMenuItem extends Component{
   event.preventDefault();
 
     this.state.type = document.getElementById("menuItemType").value;
-    const menuItem = JSON.stringify({
+    const menuItem = {
       name:this.state.name,
       price:this.state.price,
       type:this.state.type
-    });
+    };
 
-//    axios.post('api/additem?name=' + this.state.name
-//    + '&price=' + this.state.price
-//    + '&type=' + this.state.type )
-//                .then(response => {
-//                 if(response.data != null){
-//                 this.setState({"show":true});
-//                 setTimeout(()=>this.setState({"show":false}),3000);
-//                 }else{
-//                  this.setState({"show":false});
-//                 }
-//            });
-
-        const headers = new Headers();
-        headers.append('Content-Type', 'application/json');
-
-        fetch("api/additem", {
-            method: 'POST',
-            body: JSON.stringify(menuItem),
-            headers
-        }).then(response => response.json())
-                            .then(menuItem => {
-                             if(menuItem != null){
-                             this.setState({"show":true, "method":"post"});
-                             setTimeout(()=>this.setState({"show":false}),3000);
-                             }else{
-                              this.setState({"show":false});
-                             }
-                        });
+    axios({
+      method: 'post',
+      url: '/api/additem',
+      data: menuItem,
+      headers: {
+      'Content-Type': 'application/json'
+      },
+    })
+      .then(response => {
+                    if(response.data != null){
+                    this.setState({"show":true});
+                    setTimeout(()=>this.setState({"show":false}),3000);
+                    }else{
+                     this.setState({"show":false});
+                    }
+               }).catch(function (error) {
+                if (error.response) {
+                  console.log(error.response.data);
+                  console.log(error.response.status);
+                  console.log(error.response.headers);
+                }
+              });
 
         this.setState(this.initialState);
  }

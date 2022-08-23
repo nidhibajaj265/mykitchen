@@ -8,6 +8,7 @@ import AddMenuItem from './components/AddMenuItem';
 import ListMenuItems from './components/ListMenuItems';
 import {BrowserRouter as Router, Route, Routes} from 'react-router-dom';
 import background from './background.png';
+import SignUpform from './components/SignUpForm';
 
 function App() {
   // const myStyle={
@@ -27,6 +28,7 @@ function App() {
                     <Route path="/"  element={<Welcome/>}/>
                     <Route path="/additem" element={<AddMenuItem/>}/>
                     <Route path="/menu" element={<ListMenuItems/>}/>
+                    <Route path="/signUp" element={<SignUpform/>}/>
                 </Routes>
             </Row>
             <div>

@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 
 export default class Welcome extends React.Component{
-    render(){
+      render(){
         return(
           <div class="bg-light rounded-lg mb-n17">
                           <h1 className="display-4">Welcome to Masala Kitchen</h1>

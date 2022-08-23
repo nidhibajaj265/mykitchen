@@ -17,6 +17,7 @@ export default class NavigationBar extends Component{
                 <Nav className="navigationBar">
                     <Link to={"menu"} className="nav-link text-white">Menu</Link>
                     <Link to={"additem"} className="nav-link text-white">Add Item</Link>
+                    <Link to={"signUp"} className="nav-link text-white">SignUp</Link>
                   </Nav>
         </Navbar>
         )
