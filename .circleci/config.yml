@@ -41,8 +41,6 @@ jobs:
 
     docker:
       - image: circleci/openjdk:8-jdk
-    env:
-      CI: false
     steps:
       - checkout
       - run: ./gradlew bootjar
